@@ -2,6 +2,7 @@ package xyz.j8bit_forager.cloakmix;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -10,6 +11,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import xyz.j8bit_forager.cloakmix.block.ModBlocks;
+import xyz.j8bit_forager.cloakmix.item.ModItems;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(CloakMix.MOD_ID)
@@ -21,6 +24,9 @@ public class CloakMix
     public CloakMix()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
