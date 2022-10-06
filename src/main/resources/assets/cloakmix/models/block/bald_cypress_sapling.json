@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "cloakmix:block/bald_cypress_sapling"
+  }
+}

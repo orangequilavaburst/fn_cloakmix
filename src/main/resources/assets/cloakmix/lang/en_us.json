@@ -2,8 +2,19 @@
 
   "item.cloakmix.reaper_cloth": "Reaper Cloth",
 
+  "block.cloakmix.spooky_grass_block": "Spooky Grass Block",
   "block.cloakmix.spooky_soil": "Spooky Soil",
 
-  "itemGroup.cloakmix_tab": "Forager Nonessentials - Cloak Mix"
+  "block.cloakmix.bald_cypress_wood": "Bald Cypress Wood",
+  "block.cloakmix.bald_cypress_log": "Bald Cypress Log",
+  "block.cloakmix.stripped_bald_cypress_wood": "Stripped Bald Cypress Wood",
+  "block.cloakmix.stripped_bald_cypress_log": "Stripped Bald Cypress Log",
+  "block.cloakmix.bald_cypress_planks": "Bald Cypress Planks",
+  "block.cloakmix.bald_cypress_leaves": "Bald Cypress Leaves",
+  "block.cloakmix.bald_cypress_sapling": "Bald Cypress Sapling",
+
+  "enchantment.cloakmix.altered_sight": "Altered Sight",
+
+  "itemGroup.cloakmix_tab": "FN - Cloak Mix"
 
 }

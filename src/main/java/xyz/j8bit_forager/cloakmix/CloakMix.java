@@ -11,24 +11,32 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import software.bernie.example.GeckoLibMod;
+import software.bernie.geckolib3.GeckoLib;
 import xyz.j8bit_forager.cloakmix.block.ModBlocks;
+import xyz.j8bit_forager.cloakmix.enchantment.ModEnchantments;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
+import xyz.j8bit_forager.cloakmix.world.feature.ModConfiguredFeatures;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(CloakMix.MOD_ID)
 public class CloakMix
 {
     public static final String MOD_ID = "cloakmix";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public CloakMix()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        modEventBus.addListener(this::commonSetup);
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModEnchantments.register(modEventBus);
+        ModConfiguredFeatures.register(modEventBus);
 
-        modEventBus.addListener(this::commonSetup);
+        GeckoLibMod.DISABLE_IN_DEV = true;
+        GeckoLib.initialize();
 
         MinecraftForge.EVENT_BUS.register(this);
     }
