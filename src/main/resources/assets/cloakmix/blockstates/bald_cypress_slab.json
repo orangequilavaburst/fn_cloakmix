@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "cloakmix:block/bald_cypress_slab"
+    },
+    "type=double": {
+      "model": "cloakmix:block/bald_cypress_planks"
+    },
+    "type=top": {
+      "model": "cloakmix:block/bald_cypress_slab_top"
+    }
+  }
+}

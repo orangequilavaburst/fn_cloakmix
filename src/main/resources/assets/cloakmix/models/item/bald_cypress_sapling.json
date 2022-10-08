@@ -2,7 +2,8 @@
 
   "parent": "item/generated",
   "textures": {
-    "layer0": "cloakmix:block/bald_cypress_sapling"
+    "layer0": "cloakmix:block/bald_cypress_sapling",
+    "layer1": "cloakmix:block/bald_cypress_sapling_overlay"
   }
 
 }

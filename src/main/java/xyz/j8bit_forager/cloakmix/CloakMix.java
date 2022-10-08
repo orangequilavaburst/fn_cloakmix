@@ -3,6 +3,7 @@ package xyz.j8bit_forager.cloakmix;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -45,6 +46,7 @@ public class CloakMix
     private void commonSetup(final FMLCommonSetupEvent event)
     {
 
+        ((FlowerPotBlock)Blocks.FLOWER_POT).addPlant(ModBlocks.BALD_CYPRESS_SAPLING.getId(), ModBlocks.POTTED_BALD_CYPRESS_SAPLING);
 
     }
 

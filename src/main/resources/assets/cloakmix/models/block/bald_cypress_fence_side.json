@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "cloakmix:block/bald_cypress_planks"
+  }
+}

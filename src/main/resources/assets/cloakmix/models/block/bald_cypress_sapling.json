@@ -1,6 +1,37 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "cloakmix:block/bald_cypress_sapling"
-  }
+    "cross": "cloakmix:block/bald_cypress_sapling",
+    "overlay": "cloakmix:block/bald_cypress_sapling_overlay"
+  },
+  "elements": [
+    {   "from": [ 0.8, 0, 8 ],
+      "to": [ 15.2, 16, 8 ],
+      "faces": {
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross" }
+      }
+    },
+    {   "from": [ 8, 0, 0.8 ],
+      "to": [ 8, 16, 15.2 ],
+      "faces": {
+        "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross" },
+        "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#cross" }
+      }
+    },
+    {   "from": [ 0.8, 0, 8 ],
+      "to": [ 15.2, 16, 8 ],
+      "faces": {
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "tintindex": 0 },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "tintindex": 0 }
+      }
+    },
+    {   "from": [ 8, 0, 0.8 ],
+      "to": [ 8, 16, 15.2 ],
+      "faces": {
+        "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "tintindex": 0 },
+        "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "tintindex": 0  }
+      }
+    }
+  ]
 }

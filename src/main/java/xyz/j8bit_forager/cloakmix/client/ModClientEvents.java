@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
@@ -24,7 +25,8 @@ public class ModClientEvents {
     public static void setupRenderers() {
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BALD_CYPRESS_LEAVES.get(), RenderType.cutoutMipped());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BALD_CYPRESS_SAPLING.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BALD_CYPRESS_SAPLING.get(), RenderType.cutoutMipped());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_BALD_CYPRESS_SAPLING.get(), RenderType.cutoutMipped());
 
     }
 
@@ -33,7 +35,7 @@ public class ModClientEvents {
 
         event.register((state, worldIn, pos, tintIndex) -> {
             return (state != null && worldIn != null) ? BiomeColors.getAverageFoliageColor(worldIn, pos) : FoliageColor.getDefaultColor();
-        }, ModBlocks.BALD_CYPRESS_LEAVES.get());
+        }, ModBlocks.BALD_CYPRESS_LEAVES.get(), ModBlocks.BALD_CYPRESS_SAPLING.get(), ModBlocks.POTTED_BALD_CYPRESS_SAPLING.get());
 
         event.register((state, worldIn, pos, tintIndex) -> {
             return (state != null && worldIn != null) ? BiomeColors.getAverageGrassColor(worldIn, pos) : GrassColor.get(0.0f, 0.0f);
@@ -48,6 +50,13 @@ public class ModClientEvents {
             BlockState blockstate = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
             return blockColors.getColor(blockstate, (BlockAndTintGetter)null, (BlockPos)null, tintIndex);
         }, ModBlocks.BALD_CYPRESS_LEAVES.get(), ModBlocks.SPOOKY_GRASS_BLOCK.get());
+        event.register((stack, tintIndex) -> {
+            BlockState blockstate = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
+            if (tintIndex == 1) {
+                return blockColors.getColor(blockstate, (BlockAndTintGetter)null, (BlockPos)null, tintIndex);
+            }
+            return -1;
+        }, ModBlocks.BALD_CYPRESS_SAPLING.get());
     }
 
 }

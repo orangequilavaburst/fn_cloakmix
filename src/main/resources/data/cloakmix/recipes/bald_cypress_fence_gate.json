@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "/C/",
+        "/C/"
+    ],
+    "key": {
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "C": {
+            "item": "cloakmix:bald_cypress_planks"
+        }
+    },
+    "result": {
+        "item": "cloakmix:bald_cypress_fence_gate",
+        "count": 1
+    }
+}

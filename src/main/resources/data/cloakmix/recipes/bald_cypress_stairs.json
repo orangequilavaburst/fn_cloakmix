@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  #",
+        " ##",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "cloakmix:bald_cypress_planks"
+        }
+    },
+    "result": {
+        "item": "cloakmix:bald_cypress_stairs",
+        "count": 4
+    }
+}

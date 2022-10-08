@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "cloakmix:block/bald_cypress_planks",
+    "side": "cloakmix:block/bald_cypress_planks",
+    "top": "cloakmix:block/bald_cypress_planks"
+  }
+}

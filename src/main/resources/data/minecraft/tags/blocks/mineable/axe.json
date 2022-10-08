@@ -7,7 +7,11 @@
     "cloakmix:bald_cypress_log",
     "cloakmix:stripped_bald_cypress_wood",
     "cloakmix:stripped_bald_cypress_log",
-    "cloakmix:bald_cypress_planks"
+    "cloakmix:bald_cypress_planks",
+    "cloakmix:bald_cypress_slab",
+    "cloakmix:bald_cypress_stairs",
+    "cloakmix:bald_cypress_fence",
+    "cloakmix:bald_cypress_fence_gate"
 
   ]
 

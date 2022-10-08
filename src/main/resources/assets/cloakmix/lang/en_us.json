@@ -9,9 +9,15 @@
   "block.cloakmix.bald_cypress_log": "Bald Cypress Log",
   "block.cloakmix.stripped_bald_cypress_wood": "Stripped Bald Cypress Wood",
   "block.cloakmix.stripped_bald_cypress_log": "Stripped Bald Cypress Log",
-  "block.cloakmix.bald_cypress_planks": "Bald Cypress Planks",
   "block.cloakmix.bald_cypress_leaves": "Bald Cypress Leaves",
   "block.cloakmix.bald_cypress_sapling": "Bald Cypress Sapling",
+  "block.cloakmix.potted_bald_cypress_sapling": "Potted Bald Cypress Sapling",
+
+  "block.cloakmix.bald_cypress_planks": "Bald Cypress Planks",
+  "block.cloakmix.bald_cypress_slab": "Bald Cypress Slab",
+  "block.cloakmix.bald_cypress_stairs": "Bald Cypress Stairs",
+  "block.cloakmix.bald_cypress_fence": "Bald Cypress Fence",
+  "block.cloakmix.bald_cypress_fence_gate": "Bald Cypress Fence Gate",
 
   "enchantment.cloakmix.altered_sight": "Altered Sight",
 

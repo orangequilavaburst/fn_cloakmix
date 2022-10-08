@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "cloakmix:stripped_bald_cypress_log"
+        }
+    },
+    "result": {
+        "item": "cloakmix:bald_cypress_planks",
+        "count": 4
+    }
+}
