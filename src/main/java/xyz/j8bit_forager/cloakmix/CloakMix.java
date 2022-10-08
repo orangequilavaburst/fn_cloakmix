@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
 import xyz.j8bit_forager.cloakmix.block.ModBlocks;
+import xyz.j8bit_forager.cloakmix.client.ModClientEvents;
 import xyz.j8bit_forager.cloakmix.enchantment.ModEnchantments;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.world.feature.ModConfiguredFeatures;
@@ -55,6 +56,10 @@ public class CloakMix
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
+            MinecraftForge.EVENT_BUS.register(ModClientEvents.class);
+            ModClientEvents.setupRenderers();
+
         }
     }
 }
