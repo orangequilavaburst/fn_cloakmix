@@ -20,6 +20,7 @@ import xyz.j8bit_forager.cloakmix.item.ModCreativeModeTab;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.world.feature.tree.BaldCypressTreeGrower;
 
+import java.awt.*;
 import java.util.function.Supplier;
 
 public class ModBlocks {
@@ -29,6 +30,104 @@ public class ModBlocks {
 
 
     // basic blocks
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_WHITE = registerBlock("spectral_patchwork_block_white",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.WOOL)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_ORANGE = registerBlock("spectral_patchwork_block_orange",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_ORANGE)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_MAGENTA = registerBlock("spectral_patchwork_block_magenta",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_MAGENTA)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_LIGHT_BLUE = registerBlock("spectral_patchwork_block_light_blue",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_LIGHT_BLUE)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_YELLOW = registerBlock("spectral_patchwork_block_yellow",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_YELLOW)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_LIME = registerBlock("spectral_patchwork_block_lime",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_LIGHT_GREEN)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_PINK = registerBlock("spectral_patchwork_block_pink",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_PINK)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_GRAY = registerBlock("spectral_patchwork_block_gray",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_GRAY)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_LIGHT_GRAY = registerBlock("spectral_patchwork_block_light_gray",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_LIGHT_GRAY)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_CYAN = registerBlock("spectral_patchwork_block_cyan",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_CYAN)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_PURPLE = registerBlock("spectral_patchwork_block_purple",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_PURPLE)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_BLUE = registerBlock("spectral_patchwork_block_blue",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_BLUE)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_BROWN = registerBlock("spectral_patchwork_block_brown",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_BROWN)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_GREEN = registerBlock("spectral_patchwork_block_green",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_GREEN)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_RED = registerBlock("spectral_patchwork_block_red",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_RED)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    public static final RegistryObject<Block> SPECTRAL_PATCHWORK_BLOCK_BLACK = registerBlock("spectral_patchwork_block_black",
+            () -> new Block(BlockBehaviour.Properties
+                    .of(Material.WOOL, MaterialColor.COLOR_BLACK)
+                    .speedFactor(1.001f)),
+            ModCreativeModeTab.CLOAKMIX_TAB);
+
+    // grass
 
     public static final RegistryObject<Block> SPOOKY_SOIL = registerBlock("spooky_soil",
             () -> new Block(BlockBehaviour.Properties
@@ -41,6 +140,8 @@ public class ModBlocks {
             () -> new GrassBlock(BlockBehaviour.Properties
                     .copy(Blocks.GRASS_BLOCK)),
             ModCreativeModeTab.CLOAKMIX_TAB);
+
+    // wood
 
     public static final RegistryObject<Block> BALD_CYPRESS_WOOD = registerBlock("bald_cypress_wood",
             () -> new FlammableRotatedPillarBlock(BlockBehaviour.Properties
