@@ -3,21 +3,21 @@
   "item.cloakmix.reaper_cloth": "Reaper Cloth",
 
   "block.cloakmix.spectral_patchwork_block_white": "White Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Orange Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Magenta Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Light Blue Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Yellow Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Lime Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Pink Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Gray Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Light Gray Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Cyan Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Purple Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Blue Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Brown Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Green Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Red Spectral Patchwork Block",
-  "block.cloakmix.spectral_patchwork_block_white": "Black Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_orange": "Orange Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_magenta": "Magenta Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_light_blue": "Light Blue Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_yellow": "Yellow Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_lime": "Lime Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_pink": "Pink Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_gray": "Gray Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_light_gray": "Light Gray Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_cyan": "Cyan Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_purple": "Purple Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_blue": "Blue Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_brown": "Brown Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_green": "Green Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_red": "Red Spectral Patchwork Block",
+  "block.cloakmix.spectral_patchwork_block_black": "Black Spectral Patchwork Block",
 
   "block.cloakmix.spooky_grass_block": "Spooky Grass Block",
   "block.cloakmix.spooky_soil": "Spooky Soil",
@@ -38,6 +38,7 @@
 
   "enchantment.cloakmix.altered_sight": "Altered Sight",
 
-  "itemGroup.cloakmix_tab": "FN - Cloak Mix"
+  "itemGroup.cloakmix_item_tab": "FN - Cloak Mix (Items)",
+  "itemGroup.cloakmix_block_tab": "FN - Cloak Mix (Blocks)"
 
 }

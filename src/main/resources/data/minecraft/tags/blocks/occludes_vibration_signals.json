@@ -1,0 +1,25 @@
+{
+
+  "replace": false,
+  "values": [
+
+    "cloakmix:spectral_patchwork_block_white",
+    "cloakmix:spectral_patchwork_block_orange",
+    "cloakmix:spectral_patchwork_block_magenta",
+    "cloakmix:spectral_patchwork_block_light_blue",
+    "cloakmix:spectral_patchwork_block_yellow",
+    "cloakmix:spectral_patchwork_block_lime",
+    "cloakmix:spectral_patchwork_block_pink",
+    "cloakmix:spectral_patchwork_block_gray",
+    "cloakmix:spectral_patchwork_block_light_gray",
+    "cloakmix:spectral_patchwork_block_cyan",
+    "cloakmix:spectral_patchwork_block_purple",
+    "cloakmix:spectral_patchwork_block_blue",
+    "cloakmix:spectral_patchwork_block_brown",
+    "cloakmix:spectral_patchwork_block_green",
+    "cloakmix:spectral_patchwork_block_red",
+    "cloakmix:spectral_patchwork_block_black"
+    
+  ]
+
+}
