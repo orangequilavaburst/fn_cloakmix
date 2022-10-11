@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cloakmix:reaper_cloth"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "minecraft:string"
+  }
+}
