@@ -6,6 +6,8 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeableArmorItem;
+import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.FoliageColor;
@@ -20,6 +22,7 @@ import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 import xyz.j8bit_forager.cloakmix.CloakMix;
 import xyz.j8bit_forager.cloakmix.block.ModBlocks;
 import xyz.j8bit_forager.cloakmix.entity.client.armor.CloakArmorRenderer;
+import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.item.custom.ModCloakItem;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -67,6 +70,8 @@ public class ModClientEvents {
             }
             return -1;
         }, ModBlocks.BALD_CYPRESS_SAPLING.get());
+        event.register((stack, tintIndex) ->
+        { return ((ModCloakItem)stack.getItem()).getColor(stack); }, ModItems.BASIC_CLOAK.get());
     }
 
 }

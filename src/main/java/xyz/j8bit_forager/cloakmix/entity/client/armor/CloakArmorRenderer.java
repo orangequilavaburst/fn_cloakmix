@@ -1,12 +1,18 @@
 package xyz.j8bit_forager.cloakmix.entity.client.armor;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EquipmentSlot;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.processor.IBone;
+import software.bernie.geckolib3.core.util.Color;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
+import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.item.custom.ModCloakItem;
 
 public class CloakArmorRenderer extends GeoArmorRenderer<ModCloakItem> {
-
 
     public CloakArmorRenderer() {
         super(new CloakArmorModel());
@@ -81,4 +87,11 @@ public class CloakArmorRenderer extends GeoArmorRenderer<ModCloakItem> {
         return this;
     }
 
+    @Override
+    public Color getRenderColor(ModCloakItem animatable, float partialTicks, PoseStack stack, @Nullable MultiBufferSource renderTypeBuffer, @Nullable VertexConsumer vertexBuilder, int packedLightIn) {
+        CompoundTag compoundtag = itemStack.getTagElement("display");
+        if (itemStack.is(ModItems.BASIC_CLOAK.get()))
+            return Color.ofOpaque(compoundtag != null && compoundtag.contains("color", 99)  ? compoundtag.getInt("color") : 11049144);
+        else return Color.ofOpaque(16777215);
+    }
 }
