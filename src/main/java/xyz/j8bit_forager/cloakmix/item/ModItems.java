@@ -7,6 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xyz.j8bit_forager.cloakmix.CloakMix;
 import xyz.j8bit_forager.cloakmix.item.custom.ModCloakItem;
+import xyz.j8bit_forager.cloakmix.item.custom.ModDyeableCloakItem;
 
 public class ModItems {
 
@@ -19,7 +20,7 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB)));
 
     public static final RegistryObject<Item> BASIC_CLOAK = ITEMS.register("basic_cloak",
-            () -> new ModCloakItem(ModArmorTiers.CLOTH, new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB)));
+            () -> new ModDyeableCloakItem(ModArmorTiers.CLOTH, new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB)));
 
     public static void register(IEventBus eventBus){
 

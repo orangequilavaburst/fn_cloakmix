@@ -30,7 +30,7 @@ public class CloakArmorRenderer extends GeoArmorRenderer<ModCloakItem> {
 
     @Override
     public CloakArmorRenderer applySlot(EquipmentSlot slot) {
-        this.getGeoModelProvider().getModel(this.getGeoModelProvider().getModelResource(this.currentArmorItem));
+        this.getGeoModelProvider().getModel(this.getGeoModelProvider().getModelResource((ModCloakItem) this.currentArmorItem));
         IBone headBone = this.getAndHideBone(this.headBone);
         IBone bodyBone = this.getAndHideBone(this.bodyBone);
         IBone rightArmBone = this.getAndHideBone(this.rightArmBone);

@@ -18,7 +18,7 @@ import software.bernie.geckolib3.core.util.Color;
 import software.bernie.geckolib3.item.GeoArmorItem;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 
-public class ModCloakItem extends GeoArmorItem implements IAnimatable, DyeableLeatherItem {
+public class ModCloakItem extends GeoArmorItem implements IAnimatable {
 
     private final AnimationFactory factory = new AnimationFactory(this);
 
@@ -45,14 +45,6 @@ public class ModCloakItem extends GeoArmorItem implements IAnimatable, DyeableLe
     @Override
     public void onArmorTick(ItemStack stack, Level level, Player player) {
         super.onArmorTick(stack, level, player);
-    }
-
-    @Override
-    public int getColor(ItemStack pStack) {
-        CompoundTag compoundtag = pStack.getTagElement("display");
-        if (pStack.is(ModItems.BASIC_CLOAK.get()))
-            return compoundtag != null && compoundtag.contains("color", 99)  ? compoundtag.getInt("color") : 11049144;
-        else return 16777215;
     }
 
 }

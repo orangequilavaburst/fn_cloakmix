@@ -24,6 +24,7 @@ import xyz.j8bit_forager.cloakmix.block.ModBlocks;
 import xyz.j8bit_forager.cloakmix.entity.client.armor.CloakArmorRenderer;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.item.custom.ModCloakItem;
+import xyz.j8bit_forager.cloakmix.item.custom.ModDyeableCloakItem;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModClientEvents {
@@ -41,6 +42,7 @@ public class ModClientEvents {
     public static void registerArmorRenderers(final EntityRenderersEvent.AddLayers event){
         //GeoArmorRenderer.registerArmorRenderer(ItemRalseiArmor.class, new RalseiHatRenderer());
         GeoArmorRenderer.registerArmorRenderer(ModCloakItem.class, new CloakArmorRenderer());
+        GeoArmorRenderer.registerArmorRenderer(ModDyeableCloakItem.class, new CloakArmorRenderer());
     }
 
     @SubscribeEvent
@@ -71,7 +73,7 @@ public class ModClientEvents {
             return -1;
         }, ModBlocks.BALD_CYPRESS_SAPLING.get());
         event.register((stack, tintIndex) ->
-        { return ((ModCloakItem)stack.getItem()).getColor(stack); }, ModItems.BASIC_CLOAK.get());
+        { return ((ModDyeableCloakItem)stack.getItem()).getColor(stack); }, ModItems.BASIC_CLOAK.get());
     }
 
 }
