@@ -1,26 +1,38 @@
 package xyz.j8bit_forager.cloakmix.client;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.DyeableArmorItem;
-import net.minecraft.world.item.DyeableLeatherItem;
-import net.minecraft.world.item.Items;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.monster.EnderMan;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.minecraftforge.client.event.RenderNameTagEvent;
+import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 import xyz.j8bit_forager.cloakmix.CloakMix;
 import xyz.j8bit_forager.cloakmix.block.ModBlocks;
+import xyz.j8bit_forager.cloakmix.enchantment.ModEnchantments;
 import xyz.j8bit_forager.cloakmix.entity.client.armor.CloakArmorRenderer;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.item.custom.ModCloakItem;
@@ -75,5 +87,7 @@ public class ModClientEvents {
         event.register((stack, tintIndex) ->
         { return ((ModDyeableCloakItem)stack.getItem()).getColor(stack); }, ModItems.BASIC_CLOAK.get());
     }
+
+    // enchantment stuff
 
 }

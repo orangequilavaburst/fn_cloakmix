@@ -15,7 +15,10 @@ public class ModEnchantments {
             DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, CloakMix.MOD_ID);
 
     public static RegistryObject<Enchantment> ALTERED_SIGHT = ENCHANTMENTS.register("altered_sight",
-            () -> new EnchantmentAlteredSight(Enchantment.Rarity.VERY_RARE, EnchantmentCategory.ARMOR_HEAD, EquipmentSlot.HEAD));
+            () -> new EnchantmentAlteredSight(Enchantment.Rarity.RARE, EnchantmentCategory.ARMOR_HEAD, EquipmentSlot.HEAD));
+
+    public static RegistryObject<Enchantment> ANONYMITY = ENCHANTMENTS.register("anonymity",
+            () -> new EnchantmentAlteredSight(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.ARMOR_HEAD, EquipmentSlot.HEAD));
 
     public static void register(IEventBus eventBus){
         ENCHANTMENTS.register(eventBus);
