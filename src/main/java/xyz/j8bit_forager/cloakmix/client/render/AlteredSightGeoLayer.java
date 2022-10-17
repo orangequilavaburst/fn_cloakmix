@@ -35,11 +35,11 @@ public class AlteredSightGeoLayer extends GeoLayerRenderer {
     public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, Entity entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 
         LocalPlayer player = Minecraft.getInstance().player;
-        ItemStack playerHelmet = player.getItemBySlot(EquipmentSlot.HEAD);
+        ItemStack playerChest = player.getItemBySlot(EquipmentSlot.CHEST);
 
         if (entity.isInvisible()) {
-            if (!playerHelmet.isEmpty()) {
-                if (EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.ALTERED_SIGHT.get(), playerHelmet) > 0) {
+            if (!playerChest.isEmpty()) {
+                if (EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.ALTERED_SIGHT.get(), playerChest) > 0) {
                     RenderType cameo =  ModRenderTypes.alteredSight(new ResourceLocation(CloakMix.MOD_ID, "textures/environment/altered_sight.png"));
                     VertexConsumer ivertexbuilder = bufferIn.getBuffer(cameo);
                     float alpha = 1.0F;

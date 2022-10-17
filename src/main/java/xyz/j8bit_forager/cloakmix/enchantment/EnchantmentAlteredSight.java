@@ -7,7 +7,7 @@ import net.minecraft.world.item.enchantment.EnchantmentCategory;
 public class EnchantmentAlteredSight extends Enchantment {
 
     protected EnchantmentAlteredSight(Rarity pRarity, EnchantmentCategory pCategory, EquipmentSlot... pApplicableSlots) {
-        super(pRarity, EnchantmentCategory.ARMOR_HEAD, pApplicableSlots);
+        super(pRarity, ModEnchantments.CLOAK, pApplicableSlots);
     }
 
     public int getMinCost(int pEnchantmentLevel) {

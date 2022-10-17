@@ -7,7 +7,7 @@ import net.minecraft.world.item.enchantment.EnchantmentCategory;
 public class EnchantmentAnonymity extends Enchantment {
 
     protected EnchantmentAnonymity(Rarity pRarity, EnchantmentCategory pCategory, EquipmentSlot... pApplicableSlots) {
-        super(pRarity, EnchantmentCategory.ARMOR_HEAD, pApplicableSlots);
+        super(pRarity, ModEnchantments.CLOAK, pApplicableSlots);
     }
 
     public int getMinCost(int pEnchantmentLevel) {
