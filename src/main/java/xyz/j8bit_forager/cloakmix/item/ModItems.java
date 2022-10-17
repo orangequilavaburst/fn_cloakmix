@@ -6,6 +6,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xyz.j8bit_forager.cloakmix.CloakMix;
+import xyz.j8bit_forager.cloakmix.item.custom.ModCloakItem;
 
 public class ModItems {
 
@@ -16,6 +17,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> REAPER_CLOTH = ITEMS.register("reaper_cloth",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB)));
+
+    public static final RegistryObject<Item> BASIC_CLOAK = ITEMS.register("basic_cloak",
+            () -> new ModCloakItem(ModArmorTiers.CLOTH, new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB)));
 
     public static void register(IEventBus eventBus){
 

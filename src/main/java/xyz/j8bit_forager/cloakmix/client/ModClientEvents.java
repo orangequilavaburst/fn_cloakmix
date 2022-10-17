@@ -12,11 +12,15 @@ import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 import xyz.j8bit_forager.cloakmix.CloakMix;
 import xyz.j8bit_forager.cloakmix.block.ModBlocks;
+import xyz.j8bit_forager.cloakmix.entity.client.armor.CloakArmorRenderer;
+import xyz.j8bit_forager.cloakmix.item.custom.ModCloakItem;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModClientEvents {
@@ -28,6 +32,12 @@ public class ModClientEvents {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BALD_CYPRESS_SAPLING.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_BALD_CYPRESS_SAPLING.get(), RenderType.cutoutMipped());
 
+    }
+
+    @SubscribeEvent
+    public static void registerArmorRenderers(final EntityRenderersEvent.AddLayers event){
+        //GeoArmorRenderer.registerArmorRenderer(ItemRalseiArmor.class, new RalseiHatRenderer());
+        GeoArmorRenderer.registerArmorRenderer(ModCloakItem.class, new CloakArmorRenderer());
     }
 
     @SubscribeEvent
