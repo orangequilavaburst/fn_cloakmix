@@ -29,7 +29,7 @@ public class AlteredSightLayer extends RenderLayer {
     @Override
     public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, Entity entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         LocalPlayer player = Minecraft.getInstance().player;
-        ItemStack playerHelmet = player.getItemBySlot(EquipmentSlot.HEAD);
+        ItemStack playerHelmet = player.getItemBySlot(EquipmentSlot.CHEST);
 
         if (entity.isInvisible()) {
             if (!playerHelmet.isEmpty()) {

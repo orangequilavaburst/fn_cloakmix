@@ -1,11 +1,13 @@
 package xyz.j8bit_forager.cloakmix.client;
 
+import com.mojang.math.Vector3f;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
@@ -22,10 +24,7 @@ import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
-import net.minecraftforge.client.event.RenderNameTagEvent;
-import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.client.event.*;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -51,14 +50,14 @@ public class ModClientEvents {
     }
 
     @SubscribeEvent
-    public static void registerArmorRenderers(final EntityRenderersEvent.AddLayers event){
+    public static void registerArmorRenderers(final EntityRenderersEvent.AddLayers event) {
         //GeoArmorRenderer.registerArmorRenderer(ItemRalseiArmor.class, new RalseiHatRenderer());
         GeoArmorRenderer.registerArmorRenderer(ModCloakItem.class, new CloakArmorRenderer());
         GeoArmorRenderer.registerArmorRenderer(ModDyeableCloakItem.class, new CloakArmorRenderer());
     }
 
     @SubscribeEvent
-    public static void registerBlockColors(RegisterColorHandlersEvent.Block event){
+    public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
 
         event.register((state, worldIn, pos, tintIndex) -> {
             return (state != null && worldIn != null) ? BiomeColors.getAverageFoliageColor(worldIn, pos) : FoliageColor.getDefaultColor();
@@ -71,23 +70,32 @@ public class ModClientEvents {
     }
 
     @SubscribeEvent
+    //@OnlyIn(Dist.CLIENT)
     public static void registerItemColours(RegisterColorHandlersEvent.Item event) {
         BlockColors blockColors = event.getBlockColors();
         event.register((stack, tintIndex) -> {
-            BlockState blockstate = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
-            return blockColors.getColor(blockstate, (BlockAndTintGetter)null, (BlockPos)null, tintIndex);
+            BlockState blockstate = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();
+            return blockColors.getColor(blockstate, (BlockAndTintGetter) null, (BlockPos) null, tintIndex);
         }, ModBlocks.BALD_CYPRESS_LEAVES.get(), ModBlocks.SPOOKY_GRASS_BLOCK.get());
         event.register((stack, tintIndex) -> {
-            BlockState blockstate = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
+            BlockState blockstate = ((BlockItem) stack.getItem()).getBlock().defaultBlockState();
             if (tintIndex == 1) {
-                return blockColors.getColor(blockstate, (BlockAndTintGetter)null, (BlockPos)null, tintIndex);
+                return blockColors.getColor(blockstate, (BlockAndTintGetter) null, (BlockPos) null, tintIndex);
             }
             return -1;
         }, ModBlocks.BALD_CYPRESS_SAPLING.get());
         event.register((stack, tintIndex) ->
-        { return ((ModDyeableCloakItem)stack.getItem()).getColor(stack); }, ModItems.BASIC_CLOAK.get());
+        {
+            return ((ModDyeableCloakItem) stack.getItem()).getColor(stack);
+        }, ModItems.BASIC_CLOAK.get());
     }
 
     // enchantment stuff
+
+    /*@SubscribeEvent
+    public void onRenderNameTag(RenderNameTagEvent event) {
+        //temporary
+        event.setResult(Event.Result.ALLOW);
+    }*/
 
 }
