@@ -2,6 +2,7 @@ package xyz.j8bit_forager.cloakmix;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,6 +19,7 @@ import xyz.j8bit_forager.cloakmix.block.ModBlocks;
 import xyz.j8bit_forager.cloakmix.client.ModClientEvents;
 import xyz.j8bit_forager.cloakmix.enchantment.ModEnchantments;
 import xyz.j8bit_forager.cloakmix.entity.client.ModForgeEvents;
+import xyz.j8bit_forager.cloakmix.item.ModCreativeModeTab;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.world.feature.ModConfiguredFeatures;
 
@@ -63,6 +65,8 @@ public class CloakMix
             MinecraftForge.EVENT_BUS.register(ModClientEvents.class);
             ModClientEvents.setupRenderers();
             MinecraftForge.EVENT_BUS.register(new ModForgeEvents());
+
+            ModCreativeModeTab.CLOAKMIX_ITEMS_TAB.setEnchantmentCategories(ModEnchantments.CLOAK);
 
         }
     }

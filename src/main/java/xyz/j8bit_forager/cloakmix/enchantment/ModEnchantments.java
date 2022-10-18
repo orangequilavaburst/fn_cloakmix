@@ -34,7 +34,7 @@ public class ModEnchantments {
 
     // enchantment categories
 
-    static EnchantmentCategory CLOAK = EnchantmentCategory.create("cloak",
+    public static EnchantmentCategory CLOAK = EnchantmentCategory.create("cloak",
             ModEnchantments::canApplyEnchantment);
 
     public static boolean canApplyEnchantment(Item item) {

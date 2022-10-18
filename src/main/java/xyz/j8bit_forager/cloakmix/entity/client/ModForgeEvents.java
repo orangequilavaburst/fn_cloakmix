@@ -57,25 +57,6 @@ public class ModForgeEvents {
                 event.getPoseStack().translate(transAmount * cos( (float) Math.toRadians((double) yRot + 90.0)),
                         0.0, transAmount * sin( (float) Math.toRadians((double) yRot + 90.0)));
 
-                //event.getPoseStack().popPose();
-
-            }
-
-        }
-
-    }
-
-    @SubscribeEvent
-    @OnlyIn(Dist.CLIENT)
-    public void onRenderLivingPost(RenderLivingEvent.Post event) {
-
-        if (event.getEntity() instanceof Player) {
-
-            Player player = (Player)event.getEntity();
-            HumanoidModel model = (HumanoidModel) event.getRenderer().getModel();
-
-            if (player.isSprinting() && !player.isCrouching() && playerWearingCloak(player) && !player.isSwimming()) {
-
                 event.getPoseStack().popPose();
 
             }
@@ -83,6 +64,14 @@ public class ModForgeEvents {
         }
 
     }
+
+    /*@SubscribeEvent
+    @OnlyIn(Dist.CLIENT)
+    public void onRenderLivingPost(RenderLivingEvent.Post event) {
+
+        // im good
+
+    }*/
 
     @SubscribeEvent
     @OnlyIn(Dist.CLIENT)
