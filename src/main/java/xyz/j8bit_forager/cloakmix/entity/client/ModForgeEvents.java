@@ -39,14 +39,14 @@ public class ModForgeEvents {
     @OnlyIn(Dist.CLIENT)
     public void onRenderLivingPre(RenderLivingEvent.Pre event) {
 
+        event.getPoseStack().pushPose();
+
         if (event.getEntity() instanceof Player) {
 
             Player player = (Player)event.getEntity();
             HumanoidModel model = (HumanoidModel) event.getRenderer().getModel();
 
             if (player.isSprinting() && !player.isCrouching() && playerWearingCloak(player) && !player.isSwimming()) {
-
-                event.getPoseStack().pushPose();
                 //event.getPoseStack().mulPose(Vector3f.ZP.rotationDegrees(180.0F));
 
 
@@ -60,11 +60,11 @@ public class ModForgeEvents {
                 event.getPoseStack().translate(transAmount * cos( (float) Math.toRadians((double) yRot + 90.0)),
                         0.0, transAmount * sin( (float) Math.toRadians((double) yRot + 90.0)));
 
-                event.getPoseStack().popPose();
-
             }
 
         }
+
+        event.getPoseStack().popPose();
 
     }
 
