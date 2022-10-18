@@ -23,7 +23,7 @@ public class ModEnchantments {
             () -> new EnchantmentAlteredSight(Enchantment.Rarity.RARE, ModEnchantments.CLOAK, EquipmentSlot.HEAD));
 
     public static RegistryObject<Enchantment> ANONYMITY = ENCHANTMENTS.register("anonymity",
-            () -> new EnchantmentAlteredSight(Enchantment.Rarity.UNCOMMON, ModEnchantments.CLOAK, EquipmentSlot.HEAD));
+            () -> new EnchantmentAnonymity(Enchantment.Rarity.UNCOMMON, ModEnchantments.CLOAK, EquipmentSlot.HEAD));
 
     public static RegistryObject<Enchantment> BILLOWING = ENCHANTMENTS.register("billowing",
             () -> new EnchantmentAlteredSight(Enchantment.Rarity.UNCOMMON, ModEnchantments.CLOAK, EquipmentSlot.HEAD));
