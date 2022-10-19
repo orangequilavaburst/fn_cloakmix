@@ -24,11 +24,6 @@ public class ModRenderTypes {
         return CustomRenderTypes.ALTERED_SIGHT.apply(texture);
     }
 
-    public static RenderType anonymityLayer(ResourceLocation texture, float u, float v)
-    {
-        return CustomRenderTypes.ANONYMITY_SHADER.apply(texture);
-    }
-
     @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = CloakMix.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ModClientEvents
     {
@@ -39,9 +34,6 @@ public class ModRenderTypes {
             event.registerShader(new ShaderInstance(event.getResourceManager(), new ResourceLocation(CloakMix.MOD_ID, "rendertype_altered_sight"), DefaultVertexFormat.POSITION), shaderInstance -> {
                 CustomRenderTypes.alteredSightShader = shaderInstance;
             });
-            event.registerShader(new ShaderInstance(event.getResourceManager(), new ResourceLocation(CloakMix.MOD_ID, "rendertype_anonymity"), DefaultVertexFormat.POSITION_COLOR), shaderInstance -> {
-                CustomRenderTypes.anonymityShaderInstance = shaderInstance;
-            });
         }
     }
 
@@ -50,11 +42,9 @@ public class ModRenderTypes {
     {
         // Holds the object loaded via RegisterShadersEvent
         private static ShaderInstance alteredSightShader;
-        private static ShaderInstance anonymityShaderInstance;
 
         // Shader state for use in the render type, the supplier ensures it updates automatically with resource reloads
         private static final ShaderStateShard ALTERED_SIGHT_SHADER = new ShaderStateShard(() -> alteredSightShader);
-        private static final ShaderStateShard ANONYMITY_SHADER_SHARD = new ShaderStateShard(() -> anonymityShaderInstance);
 
         // Dummy constructor needed to make java happy
         private CustomRenderTypes(String s, VertexFormat v, VertexFormat.Mode m, int i, boolean b, boolean b2, Runnable r, Runnable r2)
@@ -65,7 +55,6 @@ public class ModRenderTypes {
 
         // The memoize caches the output value for each input, meaning the expensive registration process doesn't have to rerun
         public static Function<ResourceLocation, RenderType> ALTERED_SIGHT = Util.memoize(CustomRenderTypes::alteredSight);
-        public static Function<ResourceLocation, RenderType> ANONYMITY_SHADER = Util.memoize(CustomRenderTypes::anonymityLayer);
 
         // Defines the RenderType. Make sure the name is unique by including your MODID in the name.
         private static RenderType alteredSight(ResourceLocation locationIn)
@@ -76,14 +65,6 @@ public class ModRenderTypes {
                     .setTextureState(new RenderStateShard.TextureStateShard(locationIn, false, false))
                     .createCompositeState(true);
             return create("cloakmix_altered_sight", DefaultVertexFormat.POSITION, VertexFormat.Mode.QUADS, 256, true, false, rendertype$state);
-        }
-        private static RenderType anonymityLayer(ResourceLocation locationIn)
-        {
-            RenderType.CompositeState rendertype$state = RenderType.CompositeState.builder()
-                    .setShaderState(ANONYMITY_SHADER_SHARD)
-                    .setTextureState(new RenderStateShard.TextureStateShard(locationIn, false, false))
-                    .createCompositeState(true);
-            return create("cloakmix_anonymity", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, true, false, rendertype$state);
         }
     }
 
