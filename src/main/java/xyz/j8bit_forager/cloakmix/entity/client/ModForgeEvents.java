@@ -64,15 +64,17 @@ public class ModForgeEvents {
 
         }
 
-    }
-
-    @SubscribeEvent
-    @OnlyIn(Dist.CLIENT)
-    public void onRenderLivingPost(RenderLivingEvent.Post event) {
-
         event.getPoseStack().popPose();
 
     }
+
+    /*@SubscribeEvent
+    @OnlyIn(Dist.CLIENT)
+    public void onRenderLivingPost(RenderLivingEvent.Post event) {
+
+        // im good
+
+    }*/
 
     @SubscribeEvent
     @OnlyIn(Dist.CLIENT)
@@ -135,9 +137,9 @@ public class ModForgeEvents {
 
                 }
 
-            }
+                //event.setResult(Event.Result.DEFAULT);
 
-            event.setResult(Event.Result.DEFAULT);
+            }
 
         }
 
