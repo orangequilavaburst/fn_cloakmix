@@ -28,6 +28,9 @@ public class ModEnchantments {
     public static RegistryObject<Enchantment> BILLOWING = ENCHANTMENTS.register("billowing",
             () -> new EnchantmentAlteredSight(Enchantment.Rarity.UNCOMMON, ModEnchantments.CLOAK, EquipmentSlot.HEAD));
 
+    public static RegistryObject<Enchantment> MAGIC_PROTECTION = ENCHANTMENTS.register("magic_protection",
+            () -> new EnchantmentMagicProtection(Enchantment.Rarity.COMMON, ModEnchantments.CLOAK, EquipmentSlot.HEAD));
+
     public static void register(IEventBus eventBus){
         ENCHANTMENTS.register(eventBus);
     }
