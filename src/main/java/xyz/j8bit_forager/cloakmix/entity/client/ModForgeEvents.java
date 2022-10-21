@@ -41,7 +41,7 @@ import static net.minecraft.util.Mth.*;
 @Mod.EventBusSubscriber(modid = CloakMix.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModForgeEvents {
 
-    private static float rotAmount = 20.0f;
+    private static float rotAmount = 5.0f;
     private static float billowSpeed = -0.125f;
     private Random RNG = new Random();
 
@@ -56,14 +56,14 @@ public class ModForgeEvents {
             Player player = (Player) event.getEntity();
             HumanoidModel model = (HumanoidModel) event.getRenderer().getModel();
 
-            if (player.isSprinting() && !player.isCrouching() && !playerWearingCloak(player).isEmpty() && !player.isSwimming()) {
+            if (player.isSprinting() && !player.isCrouching() && playerWearingCloak(player) != null && !player.isSwimming()) {
                 //event.getPoseStack().mulPose(Vector3f.ZP.rotationDegrees(180.0F));
 
 
                 float yRot = event.getEntity().yBodyRotO + (event.getEntity().yBodyRot - event.getEntity().yBodyRotO) * event.getPartialTick();
-                double transAmount = -0.25;
+                double transAmount = 0.1;//-0.25;
 
-                model.getHead().setRotation(model.getHead().xRot, model.getHead().yRot - rotAmount, model.getHead().zRot);
+                //model.getHead().setRotation(model.getHead().xRot, model.getHead().yRot - rotAmount, model.getHead().zRot);
 
                 event.getPoseStack().mulPose(Vector3f.ZP.rotationDegrees(rotAmount * sin((float) Math.toRadians((double) yRot))));
                 event.getPoseStack().mulPose(Vector3f.XP.rotationDegrees(rotAmount * cos((float) Math.toRadians((double) yRot))));

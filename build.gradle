@@ -1,3 +1,13 @@
+buildscript {
+    repositories {
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        // MixinGradle:
+        classpath 'org.spongepowered:mixingradle:0.7.+'
+    }
+}
+
 plugins {
     id 'eclipse'
     id 'maven-publish'
@@ -30,6 +40,8 @@ minecraft {
     mappings channel: 'parchment', version: '2022.09.18-1.19.2'
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
+
+    apply plugin: 'org.spongepowered.mixin'
 
     // Default run configurations.
     // These can be tweaked, removed, or duplicated as needed.
@@ -157,9 +169,19 @@ dependencies {
 
     implementation fg.deobf("curse.maven:exp-388172:4017013")
 
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+}
+
+mixin {
+    // MixinGradle Settings
+    config 'cloakmix.mixins.json'
+
+    debug.verbose = true
+    debug.export = true
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
