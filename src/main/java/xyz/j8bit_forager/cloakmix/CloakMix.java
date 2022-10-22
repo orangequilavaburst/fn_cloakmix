@@ -18,8 +18,10 @@ import software.bernie.geckolib3.GeckoLib;
 import xyz.j8bit_forager.cloakmix.block.ModBlocks;
 import xyz.j8bit_forager.cloakmix.client.ModClientEvents;
 import xyz.j8bit_forager.cloakmix.enchantment.ModEnchantments;
+import xyz.j8bit_forager.cloakmix.entity.ModEntityTypes;
 import xyz.j8bit_forager.cloakmix.entity.client.ModForgeEvents;
 import xyz.j8bit_forager.cloakmix.item.ModCreativeModeTab;
+import xyz.j8bit_forager.cloakmix.item.ModItemProperties;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.world.feature.ModConfiguredFeatures;
 
@@ -39,6 +41,7 @@ public class CloakMix
         ModBlocks.register(modEventBus);
         ModEnchantments.register(modEventBus);
         ModConfiguredFeatures.register(modEventBus);
+        ModEntityTypes.register(modEventBus);
 
         GeckoLibMod.DISABLE_IN_DEV = true;
         GeckoLib.initialize();
@@ -67,6 +70,8 @@ public class CloakMix
             MinecraftForge.EVENT_BUS.register(new ModForgeEvents());
 
             ModCreativeModeTab.CLOAKMIX_ITEMS_TAB.setEnchantmentCategories(ModEnchantments.CLOAK);
+
+            ModItemProperties.addCustomItemProperties();
 
         }
     }

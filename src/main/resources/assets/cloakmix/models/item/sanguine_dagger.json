@@ -1,0 +1,17 @@
+{
+
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "cloakmix:item/sanguine_dagger"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "pulling": 1,
+        "pull": 1.0
+      },
+      "model": "cloakmix:item/sanguine_dagger_charged"
+    }
+  ]
+
+}

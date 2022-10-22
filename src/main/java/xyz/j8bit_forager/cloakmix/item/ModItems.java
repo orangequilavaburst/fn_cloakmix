@@ -1,13 +1,15 @@
 package xyz.j8bit_forager.cloakmix.item;
 
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xyz.j8bit_forager.cloakmix.CloakMix;
-import xyz.j8bit_forager.cloakmix.item.custom.ModCloakItem;
 import xyz.j8bit_forager.cloakmix.item.custom.ModDyeableCloakItem;
+import xyz.j8bit_forager.cloakmix.item.custom.ModSamguineDagger;
 
 public class ModItems {
 
@@ -21,6 +23,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> BASIC_CLOAK = ITEMS.register("basic_cloak",
             () -> new ModDyeableCloakItem(ModArmorTiers.CLOTH, new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB)));
+
+    public static final RegistryObject<Item> SANGUINE_DAGGER = ITEMS.register("sanguine_dagger",
+            () -> new ModSamguineDagger(new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB).durability(666).rarity(Rarity.RARE), 1.5f, 2.5f, 10, Items.GHAST_TEAR));
 
     public static void register(IEventBus eventBus){
 

@@ -7,6 +7,7 @@ import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -32,7 +33,9 @@ import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 import xyz.j8bit_forager.cloakmix.CloakMix;
 import xyz.j8bit_forager.cloakmix.block.ModBlocks;
 import xyz.j8bit_forager.cloakmix.enchantment.ModEnchantments;
+import xyz.j8bit_forager.cloakmix.entity.ModEntityTypes;
 import xyz.j8bit_forager.cloakmix.entity.client.armor.CloakArmorRenderer;
+import xyz.j8bit_forager.cloakmix.entity.client.custom.renderer.SanguineDaggerRenderer;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.item.custom.ModCloakItem;
 import xyz.j8bit_forager.cloakmix.item.custom.ModDyeableCloakItem;
@@ -46,6 +49,8 @@ public class ModClientEvents {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BALD_CYPRESS_LEAVES.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BALD_CYPRESS_SAPLING.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_BALD_CYPRESS_SAPLING.get(), RenderType.cutoutMipped());
+
+        EntityRenderers.register(ModEntityTypes.SANGUINE_DAGGER_PROJECTILE.get(), SanguineDaggerRenderer::new);
 
     }
 
