@@ -125,7 +125,7 @@ public class SanguineDaggerProjectile extends ThrowableProjectile {
                 this.getOwner().playSound(SoundEvents.PLAYER_ATTACK_CRIT, 1.0f, 1.0f);
                 this.getOwner().playSound(SoundEvents.ARROW_HIT_PLAYER, 1.0f, 1.0f); // replace with unique sound
 
-                ModMessages.sendToServer(new ParticleSpawnPacket(entity.position(), this.getOwner().position().add(0.0, this.getOwner().getBbHeight()/2.0, 0.0), ParticleTypes.FLAME, 128.0f));
+                ModMessages.sendToServer(new ParticleSpawnPacket(entity.position(), this.getOwner().position().add(0.0, this.getOwner().getBbHeight()/2.0, 0.0), ParticleTypes.HEART));
 
             }
         }
