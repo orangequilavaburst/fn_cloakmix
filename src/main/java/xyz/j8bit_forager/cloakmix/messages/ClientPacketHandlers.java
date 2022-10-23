@@ -1,6 +1,9 @@
 package xyz.j8bit_forager.cloakmix.messages;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -26,6 +29,8 @@ public class ClientPacketHandlers {
                         Mth.lerp(t, packet.getStart().z(), packet.getEnd().z()),
                         0.0f, 0.0f, 0.0f);
             }
+            level.playSound(player, packet.getStart().x(), packet.getStart().y(), packet.getStart().z(), SoundEvents.PLAYER_ATTACK_CRIT, SoundSource.MASTER, 1.0f, 1.0f);
+            level.playSound(player, packet.getEnd().x(), packet.getEnd().y(), packet.getEnd().z(), SoundEvents.ARROW_HIT_PLAYER, SoundSource.MASTER, 1.0f, 1.0f);
         }
 
     }
