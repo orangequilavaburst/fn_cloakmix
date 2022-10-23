@@ -1,13 +1,16 @@
 package xyz.j8bit_forager.cloakmix.entity.client.custom;
 
+import io.netty.buffer.ByteBuf;
 import net.minecraft.Util;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
@@ -27,6 +30,10 @@ import xyz.j8bit_forager.cloakmix.CloakMix;
 import xyz.j8bit_forager.cloakmix.entity.ModEntityTypes;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.item.custom.ModSamguineDagger;
+import xyz.j8bit_forager.cloakmix.messages.ModMessages;
+import xyz.j8bit_forager.cloakmix.messages.packet.ParticleSpawnPacket;
+
+import java.nio.ByteBuffer;
 
 public class SanguineDaggerProjectile extends ThrowableProjectile {
 
@@ -96,7 +103,9 @@ public class SanguineDaggerProjectile extends ThrowableProjectile {
             ParticleOptions particleoptions = this.getParticle();
 
             for(int i = 0; i < 8; ++i) {
-                this.level.addParticle(particleoptions, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
+                this.level.addParticle(particleoptions,
+                        this.getX(), this.getY(), this.getZ(),
+                        this.level.random.nextDouble() * 0.1 - 0.05, this.level.random.nextDouble() * 0.1, this.level.random.nextDouble() * 0.1 - 0.05);
             }
         }
 
@@ -116,26 +125,11 @@ public class SanguineDaggerProjectile extends ThrowableProjectile {
                 this.getOwner().playSound(SoundEvents.PLAYER_ATTACK_CRIT, 1.0f, 1.0f);
                 this.getOwner().playSound(SoundEvents.ARROW_HIT_PLAYER, 1.0f, 1.0f); // replace with unique sound
 
-                float distance = this.getOwner().distanceTo(entity);
-                CloakMix.LOGGER.info("Distance: " + distance);
-                for (float i = 1; i < distance - 1.0f; i += 0.5f) {
-                    float t = i / distance;
-                    this.getOwner().level.addParticle(ParticleTypes.ENCHANT, true,
-                            Mth.lerp(t, entity.getX(), this.getOwner().getX()),
-                            Mth.lerp(t, entity.getY(), this.getOwner().getY()),
-                            Mth.lerp(t, entity.getZ(), this.getOwner().getZ()),
-                            0.0f, 0.0f, 0.0f);
+                ModMessages.sendToServer(new ParticleSpawnPacket(entity.position(), this.getOwner().position().add(0.0, this.getOwner().getBbHeight()/2.0, 0.0), ParticleTypes.FLAME, 128.0f));
 
-                /*CloakMix.LOGGER.info("Particle [" + i + ", " + t + ": (" +
-                        Mth.lerp(t, entity.position().x(), this.getOwner().position().x()) +
-                        ", " +
-                        Mth.lerp(t, entity.position().x(), this.getOwner().position().y()) +
-                        ", " +
-                        Mth.lerp(t, entity.position().x(), this.getOwner().position().z()) +
-                        ")");*/
-                }
             }
         }
+
     }
 
     protected float getGravity() {

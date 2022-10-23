@@ -23,6 +23,7 @@ import xyz.j8bit_forager.cloakmix.entity.client.ModForgeEvents;
 import xyz.j8bit_forager.cloakmix.item.ModCreativeModeTab;
 import xyz.j8bit_forager.cloakmix.item.ModItemProperties;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
+import xyz.j8bit_forager.cloakmix.messages.ModMessages;
 import xyz.j8bit_forager.cloakmix.world.feature.ModConfiguredFeatures;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -51,6 +52,8 @@ public class CloakMix
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+
+        ModMessages.register();
 
         ((FlowerPotBlock)Blocks.FLOWER_POT).addPlant(ModBlocks.BALD_CYPRESS_SAPLING.getId(), ModBlocks.POTTED_BALD_CYPRESS_SAPLING);
 
