@@ -113,20 +113,22 @@ public class SanguineDaggerProjectile extends ThrowableProjectile {
 
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
-        Entity entity = pResult.getEntity();
-        Level level = entity.getCommandSenderWorld();
-        boolean fromBehind = ModSamguineDagger.isLookingBehindTarget((LivingEntity) entity, this.position());
-        float damage = this.attackDamage * (fromBehind ? 2 : 1);
-        if (!level.isClientSide()) {
-            entity.hurt(DamageSource.thrown(this, this.getOwner()), damage);
-            if (this.getOwner() instanceof LivingEntity livingEntity) {
-                livingEntity.heal(this.attackDamage);
+        if (pResult.getEntity() != this.getOwner()) {
+            Entity entity = pResult.getEntity();
+            Level level = entity.getCommandSenderWorld();
+            boolean fromBehind = ModSamguineDagger.isLookingBehindTarget((LivingEntity) entity, this.position());
+            float damage = this.attackDamage * (fromBehind ? 2 : 1);
+            if (!level.isClientSide()) {
+                entity.hurt(DamageSource.thrown(this, this.getOwner()), damage);
+                if (this.getOwner() instanceof LivingEntity livingEntity) {
+                    livingEntity.heal(this.attackDamage);
 
-                this.getOwner().playSound(SoundEvents.PLAYER_ATTACK_CRIT, 1.0f, 1.0f);
-                this.getOwner().playSound(SoundEvents.ARROW_HIT_PLAYER, 1.0f, 1.0f); // replace with unique sound
+                    this.getOwner().playSound(SoundEvents.PLAYER_ATTACK_CRIT, 1.0f, 1.0f);
+                    this.getOwner().playSound(SoundEvents.ARROW_HIT_PLAYER, 1.0f, 1.0f); // replace with unique sound
 
-                ModMessages.sendToServer(new ParticleSpawnPacket(entity.position(), this.getOwner().position().add(0.0, this.getOwner().getBbHeight()/2.0, 0.0), ParticleTypes.HEART));
+                    ModMessages.sendToServer(new ParticleSpawnPacket(entity.position(), this.getOwner().position().add(0.0, this.getOwner().getBbHeight() / 2.0, 0.0), ParticleTypes.HEART));
 
+                }
             }
         }
 

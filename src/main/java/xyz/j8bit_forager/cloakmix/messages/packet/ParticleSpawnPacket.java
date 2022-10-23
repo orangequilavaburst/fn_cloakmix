@@ -17,6 +17,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import xyz.j8bit_forager.cloakmix.CloakMix;
+import xyz.j8bit_forager.cloakmix.messages.ClientPacketHandlers;
 
 import java.util.function.Supplier;
 
@@ -41,6 +42,10 @@ public class ParticleSpawnPacket {
         fromBytes(buffer);
 
     }
+
+    public Vec3 getStart(){ return this.start; }
+    public Vec3 getEnd(){ return this.end; }
+    public ParticleOptions getParticleOptions() { return this.particleOptions; }
 
     // thanks to Random on Discord
     public void toBytes(FriendlyByteBuf buffer){
@@ -68,66 +73,9 @@ public class ParticleSpawnPacket {
     public boolean handle(Supplier<NetworkEvent.Context> supplier){
 
         NetworkEvent.Context context = supplier.get();
-        context.enqueueWork(() -> {
-
-            // here we are in the server!
-            // here we are in the server and it's bright!
-
-            Player player = Minecraft.getInstance().player;
-            Level level = Minecraft.getInstance().level;
-
-            //level.sendParticles(ParticleTypes.HEART, player.getX(), player.getY(), player.getZ(),1, 0.0, 0.0, 0.0, 0.0);
-
-            double distance = start.distanceTo(end);
-            //CloakMix.LOGGER.info("Distance: " + distance);
-            //player.sendSystemMessage(Component.literal("Distance: " + distance));
-            if (distance > 0) {
-                for (float i = 1; i < distance - 1.0f; i += 0.5f) {
-                    float t = i / (float) distance;
-                    level.addParticle(particleOptions, true,
-                            Mth.lerp(t, start.x(), end.x()),
-                            Mth.lerp(t, start.y(), end.y()),
-                            Mth.lerp(t, start.z(), end.z()),
-                            0.0f, 0.0f, 0.0f);
-
-                    /*player.sendSystemMessage(Component.literal("Particle " + i + " spawned at: (" +
-                            Mth.lerp(t, start.x(), end.x()) + ", " +
-                            Mth.lerp(t, start.y(), end.y()) + ", " +
-                            Mth.lerp(t, start.z(), end.z()) + ")"));*/
-                }
-            }
-
-        });
+        context.enqueueWork(() -> ClientPacketHandlers.handleParticleSpawnPacket(this));
         return true;
 
     }
-
-    /*public boolean handle(Supplier<NetworkEvent.Context> supplier, Vec3 start, Vec3 end, float maxDist, ParticleOptions particleOptions){
-
-        NetworkEvent.Context context = supplier.get();
-        context.enqueueWork(() -> {
-
-            // here we are in the server!
-            // here we are in the server and it's bright!
-            ServerPlayer player = context.getSender();
-            ServerLevel level = context.getSender().getLevel();
-
-            double distance = start.distanceTo(end);
-            //CloakMix.LOGGER.info("Distance: " + distance);
-            if (distance < maxDist) {
-                for (float i = 1; i < distance - 1.0f; i += 0.5f) {
-                    float t = i / (float) distance;
-                    level.addParticle(particleOptions, true,
-                            Mth.lerp(t, start.x(), end.x()),
-                            Mth.lerp(t, start.y(), end.y()),
-                            Mth.lerp(t, start.z(), end.z()),
-                            0.0f, 0.0f, 0.0f);
-                }
-            }
-
-        });
-        return true;
-
-    }*/
 
 }
