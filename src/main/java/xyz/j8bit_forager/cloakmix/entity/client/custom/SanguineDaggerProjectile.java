@@ -26,6 +26,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.network.PacketDistributor;
 import xyz.j8bit_forager.cloakmix.CloakMix;
 import xyz.j8bit_forager.cloakmix.entity.ModEntityTypes;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
@@ -126,7 +127,9 @@ public class SanguineDaggerProjectile extends ThrowableProjectile {
                     this.getOwner().playSound(SoundEvents.PLAYER_ATTACK_CRIT, 1.0f, 1.0f);
                     this.getOwner().playSound(SoundEvents.ARROW_HIT_PLAYER, 1.0f, 1.0f); // replace with unique sound
 
-                    ModMessages.sendToServer(new ParticleSpawnPacket(entity.position(), this.getOwner().position().add(0.0, this.getOwner().getBbHeight() / 2.0, 0.0), ParticleTypes.HEART));
+                    //ModMessages.sendToServer(new ParticleSpawnPacket(entity.position(), this.getOwner().position().add(0.0, this.getOwner().getBbHeight() / 2.0, 0.0), ParticleTypes.HEART));
+                    ModMessages.INSTANCE.send(PacketDistributor.TRACKING_ENTITY.with(() -> this),
+                            new ParticleSpawnPacket(entity.position(), this.getOwner().position().add(0.0, this.getOwner().getBbHeight() / 2.0, 0.0), ParticleTypes.HEART));
 
                 }
             }

@@ -70,12 +70,8 @@ public class ParticleSpawnPacket {
         particleOptions = readParticleOptions(buffer);
     }
 
-    public boolean handle(Supplier<NetworkEvent.Context> supplier){
-
-        NetworkEvent.Context context = supplier.get();
-        context.enqueueWork(() -> ClientPacketHandlers.handleParticleSpawnPacket(this));
-        return true;
-
+    public void handle(Supplier<NetworkEvent.Context> supplier) {
+        ClientPacketHandlers.handleParticleSpawnPacket(this);
     }
 
 }

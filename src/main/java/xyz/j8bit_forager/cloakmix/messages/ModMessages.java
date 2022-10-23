@@ -11,7 +11,7 @@ import xyz.j8bit_forager.cloakmix.messages.packet.ParticleSpawnPacket;
 
 public class ModMessages {
 
-    private static SimpleChannel INSTANCE;
+    public static SimpleChannel INSTANCE;
 
     private static int packetID = 0;
     private static int id(){
@@ -31,21 +31,13 @@ public class ModMessages {
 
         INSTANCE = network;
 
-        network.messageBuilder(ParticleSpawnPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+        network.messageBuilder(ParticleSpawnPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(ParticleSpawnPacket::new)
                 //.decoder(ParticleSpawnPacket::fromBytes)
                 .encoder(ParticleSpawnPacket::toBytes)
                 .consumerMainThread(ParticleSpawnPacket::handle)
                 .add();
 
-    }
-
-    public static <MSG> void sendToServer(MSG message){
-        INSTANCE.sendToServer(message);
-    }
-
-    public static <MSG> void sendToPlayer(MSG message, ServerPlayer serverPlayer){
-        INSTANCE.send(PacketDistributor.PLAYER.with(() -> serverPlayer), message);
     }
 
 }
