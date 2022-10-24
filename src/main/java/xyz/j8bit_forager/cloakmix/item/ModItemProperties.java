@@ -3,12 +3,21 @@ package xyz.j8bit_forager.cloakmix.item;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import xyz.j8bit_forager.cloakmix.item.custom.ModSamguineDagger;
+import xyz.j8bit_forager.cloakmix.item.custom.ModSanguineDagger;
 
 public class ModItemProperties {
 
     public static void addCustomItemProperties() {
-        makeSanguineDagger((ModSamguineDagger) ModItems.SANGUINE_DAGGER.get());
+        makeSanguineDagger((ModSanguineDagger) ModItems.SANGUINE_DAGGER.get());
+
+        ItemProperties.register(ModItems.VORPAL_BLADE.get(), new ResourceLocation("swingtime"),
+                (p_174635_, p_174636_, p_174637_, p_174638_) -> {
+                    if (p_174637_ == null) {
+                        return 0.0F;
+                    } else {
+                        return p_174637_.getAttackAnim(1.0f);
+                    }
+                });
     }
 
     // from Kaupenjoe
@@ -27,7 +36,7 @@ public class ModItemProperties {
         });
     }
 
-    private static void makeSanguineDagger(ModSamguineDagger item) {
+    private static void makeSanguineDagger(ModSanguineDagger item) {
         ItemProperties.register(item, new ResourceLocation("pull"), (p_174635_, p_174636_, p_174637_, p_174638_) -> {
             if (p_174637_ == null) {
                 return 0.0F;

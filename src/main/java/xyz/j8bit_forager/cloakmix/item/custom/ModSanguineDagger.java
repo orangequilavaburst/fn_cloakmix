@@ -3,11 +3,9 @@ package xyz.j8bit_forager.cloakmix.item.custom;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
@@ -23,10 +21,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
-import xyz.j8bit_forager.cloakmix.CloakMix;
 import xyz.j8bit_forager.cloakmix.entity.client.custom.SanguineDaggerProjectile;
 
-public class ModSamguineDagger extends Item implements Vanishable {
+public class ModSanguineDagger extends Item implements Vanishable {
     private final float attackDamage;
     private final float attackSpeed;
     private final int chargeTime;
@@ -36,7 +33,7 @@ public class ModSamguineDagger extends Item implements Vanishable {
      */
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
-    public ModSamguineDagger(Properties pProperties, float attackDamage, float attackSpeed, int chargeTime, Item repairItem) {
+    public ModSanguineDagger(Properties pProperties, float attackDamage, float attackSpeed, int chargeTime, Item repairItem) {
 
         super(pProperties);
         this.attackDamage = attackDamage;

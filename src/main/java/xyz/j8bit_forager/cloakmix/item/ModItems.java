@@ -9,7 +9,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xyz.j8bit_forager.cloakmix.CloakMix;
 import xyz.j8bit_forager.cloakmix.item.custom.ModDyeableCloakItem;
-import xyz.j8bit_forager.cloakmix.item.custom.ModSamguineDagger;
+import xyz.j8bit_forager.cloakmix.item.custom.ModSanguineDagger;
+import xyz.j8bit_forager.cloakmix.item.custom.ModVorpalBlade;
 
 public class ModItems {
 
@@ -25,8 +26,10 @@ public class ModItems {
             () -> new ModDyeableCloakItem(ModArmorTiers.CLOTH, new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB)));
 
     public static final RegistryObject<Item> SANGUINE_DAGGER = ITEMS.register("sanguine_dagger",
-            () -> new ModSamguineDagger(new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB).durability(666).rarity(Rarity.RARE), 1.5f, 2.5f, 10, Items.GHAST_TEAR));
+            () -> new ModSanguineDagger(new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB).durability(666).rarity(Rarity.RARE), 1.5f, 2.5f, 10, Items.GHAST_TEAR));
 
+    public static final RegistryObject<Item> VORPAL_BLADE = ITEMS.register("vorpal_blade",
+            () -> new ModVorpalBlade(new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB).durability(666).rarity(Rarity.RARE), 4.5f, -2.0f, ModItems.REAPER_CLOTH.get()));
     public static void register(IEventBus eventBus){
 
         ITEMS.register(eventBus);

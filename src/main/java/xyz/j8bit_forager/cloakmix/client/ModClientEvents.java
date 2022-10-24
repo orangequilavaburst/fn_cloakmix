@@ -7,10 +7,12 @@ import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -36,6 +38,7 @@ import xyz.j8bit_forager.cloakmix.enchantment.ModEnchantments;
 import xyz.j8bit_forager.cloakmix.entity.ModEntityTypes;
 import xyz.j8bit_forager.cloakmix.entity.client.armor.CloakArmorRenderer;
 import xyz.j8bit_forager.cloakmix.entity.client.custom.renderer.SanguineDaggerRenderer;
+import xyz.j8bit_forager.cloakmix.entity.client.custom.renderer.VorpalBladeRenderer;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.item.custom.ModCloakItem;
 import xyz.j8bit_forager.cloakmix.item.custom.ModDyeableCloakItem;
@@ -51,6 +54,7 @@ public class ModClientEvents {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_BALD_CYPRESS_SAPLING.get(), RenderType.cutoutMipped());
 
         EntityRenderers.register(ModEntityTypes.SANGUINE_DAGGER_PROJECTILE.get(), SanguineDaggerRenderer::new);
+        EntityRenderers.register(ModEntityTypes.VORPAL_BLADE_PROJECTILE.get(), VorpalBladeRenderer::new);
 
     }
 
@@ -93,6 +97,13 @@ public class ModClientEvents {
         {
             return ((ModDyeableCloakItem) stack.getItem()).getColor(stack);
         }, ModItems.BASIC_CLOAK.get());
+    }
+
+    @SubscribeEvent
+    public static void registerModels(ModelEvent.RegisterAdditional event){
+
+        event.register(new ResourceLocation(CloakMix.MOD_ID, "item/vorpal_blade_projectile"));
+
     }
 
     // enchantment stuff

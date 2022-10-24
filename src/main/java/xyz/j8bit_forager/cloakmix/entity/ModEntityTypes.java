@@ -8,6 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xyz.j8bit_forager.cloakmix.CloakMix;
 import xyz.j8bit_forager.cloakmix.entity.client.custom.SanguineDaggerProjectile;
+import xyz.j8bit_forager.cloakmix.entity.client.custom.VorpalBladeProjectile;
 
 public class ModEntityTypes {
 
@@ -17,6 +18,10 @@ public class ModEntityTypes {
     public static RegistryObject<EntityType<SanguineDaggerProjectile>> SANGUINE_DAGGER_PROJECTILE =
             ENTITY_TYPES.register("sanguine_dagger_projectile",
                     () -> EntityType.Builder.of((EntityType.EntityFactory<SanguineDaggerProjectile>)SanguineDaggerProjectile::new, MobCategory.MISC).build("sanguine_dagger_projectile"));
+
+    public static RegistryObject<EntityType<VorpalBladeProjectile>> VORPAL_BLADE_PROJECTILE =
+            ENTITY_TYPES.register("vorpal_blade_projectile",
+                    () -> EntityType.Builder.of((EntityType.EntityFactory<VorpalBladeProjectile>)VorpalBladeProjectile::new, MobCategory.MISC).build("vorpal_blade_projectile"));
 
     public static void register(IEventBus modEventBus) {
 

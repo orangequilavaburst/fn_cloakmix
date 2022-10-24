@@ -1,40 +1,26 @@
 package xyz.j8bit_forager.cloakmix.entity.client.custom;
 
-import io.netty.buffer.ByteBuf;
-import net.minecraft.Util;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.Snowball;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PacketDistributor;
-import xyz.j8bit_forager.cloakmix.CloakMix;
 import xyz.j8bit_forager.cloakmix.entity.ModEntityTypes;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
-import xyz.j8bit_forager.cloakmix.item.custom.ModSamguineDagger;
+import xyz.j8bit_forager.cloakmix.item.custom.ModSanguineDagger;
 import xyz.j8bit_forager.cloakmix.messages.ModMessages;
 import xyz.j8bit_forager.cloakmix.messages.packet.ParticleSpawnPacket;
-
-import java.nio.ByteBuffer;
 
 public class SanguineDaggerProjectile extends ThrowableProjectile {
 
@@ -117,7 +103,7 @@ public class SanguineDaggerProjectile extends ThrowableProjectile {
         if (pResult.getEntity() != this.getOwner()) {
             Entity entity = pResult.getEntity();
             Level level = entity.getCommandSenderWorld();
-            boolean fromBehind = ModSamguineDagger.isLookingBehindTarget((LivingEntity) entity, this.position());
+            boolean fromBehind = ModSanguineDagger.isLookingBehindTarget((LivingEntity) entity, this.position());
             float damage = this.attackDamage * (fromBehind ? 2 : 1);
             if (!level.isClientSide()) {
                 entity.hurt(DamageSource.thrown(this, this.getOwner()), damage);

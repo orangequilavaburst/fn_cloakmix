@@ -1,0 +1,34 @@
+{
+
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "cloakmix:item/vorpal_blade"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "swingtime": 0.01
+      },
+      "model": "cloakmix:item/vorpal_blade_charge_1"
+    },
+    {
+      "predicate": {
+        "swingtime": 0.2
+      },
+      "model": "cloakmix:item/vorpal_blade_charge_2"
+    },
+    {
+      "predicate": {
+        "swingtime": 0.4
+      },
+      "model": "cloakmix:item/vorpal_blade_charge_3"
+    },
+    {
+      "predicate": {
+        "swingtime": 0.6
+      },
+      "model": "cloakmix:item/vorpal_blade"
+    }
+  ]
+
+}
