@@ -120,6 +120,11 @@ public class SanguineDaggerProjectile extends ThrowableProjectile {
 
     }
 
+    @Override
+    public boolean isInWater() {
+        return false;
+    }
+
     protected float getGravity() {
         return 0.075F;
     }

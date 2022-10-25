@@ -13,7 +13,9 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec3;
 import xyz.j8bit_forager.cloakmix.CloakMix;
 import xyz.j8bit_forager.cloakmix.entity.client.custom.SanguineDaggerProjectile;
 import xyz.j8bit_forager.cloakmix.entity.client.custom.VorpalBladeProjectile;
@@ -30,8 +32,8 @@ public class VorpalBladeRenderer extends EntityRenderer<VorpalBladeProjectile> {
     @Override
     public void render(VorpalBladeProjectile pEntity, float pEntityYaw, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
         pPoseStack.pushPose();
-        pPoseStack.mulPose(Vector3f.YP.rotationDegrees(Mth.lerp(pPartialTick, pEntity.yRotO, pEntity.getYRot()) - 90.0F));
-        pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(Mth.lerp(pPartialTick, pEntity.xRotO, pEntity.getXRot()) + 90.0F - pEntity.tickCount * 30.0f));
+        pPoseStack.mulPose(Vector3f.YP.rotationDegrees(Mth.lerp(pPartialTick, pEntity.yRotO, pEntity.getYRot()) ));
+        pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(Mth.lerp(pPartialTick, pEntity.xRotO, pEntity.getXRot()) ));
         VertexConsumer vertexconsumer = ItemRenderer.getFoilBuffer(pBuffer, RenderType.itemEntityTranslucentCull(this.getTextureLocation(pEntity)), true, false);
         this.itemRenderer.renderModelLists(
                 Minecraft.getInstance().getModelManager().getModel(new ResourceLocation(CloakMix.MOD_ID, "item/vorpal_blade_projectile")),
@@ -44,4 +46,5 @@ public class VorpalBladeRenderer extends EntityRenderer<VorpalBladeProjectile> {
     public ResourceLocation getTextureLocation(VorpalBladeProjectile pEntity) {
         return TextureAtlas.LOCATION_BLOCKS;
     }
+
 }
