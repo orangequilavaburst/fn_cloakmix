@@ -16,6 +16,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xyz.j8bit_forager.cloakmix.CloakMix;
+import xyz.j8bit_forager.cloakmix.block.custom.SpectralLoomBlock;
 import xyz.j8bit_forager.cloakmix.item.ModCreativeModeTab;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.world.feature.tree.BaldCypressTreeGrower;
@@ -141,7 +142,7 @@ public class ModBlocks {
             ModCreativeModeTab.CLOAKMIX_BLOCKS_TAB);
 
     public static final RegistryObject<Block> SPECTRAL_LOOM = registerBlock("spectral_loom",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.LOOM)),
+            () -> new SpectralLoomBlock(BlockBehaviour.Properties.copy(Blocks.LOOM)),
             ModCreativeModeTab.CLOAKMIX_BLOCKS_TAB);
 
     // wood

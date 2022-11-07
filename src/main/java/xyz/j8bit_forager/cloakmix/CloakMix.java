@@ -2,7 +2,7 @@ package xyz.j8bit_forager.cloakmix;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.common.MinecraftForge;
@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
 import xyz.j8bit_forager.cloakmix.block.ModBlocks;
+import xyz.j8bit_forager.cloakmix.block.entity.ModBlockEntityTypes;
 import xyz.j8bit_forager.cloakmix.client.ModClientEvents;
 import xyz.j8bit_forager.cloakmix.enchantment.ModEnchantments;
 import xyz.j8bit_forager.cloakmix.entity.ModEntityTypes;
@@ -24,6 +25,8 @@ import xyz.j8bit_forager.cloakmix.item.ModCreativeModeTab;
 import xyz.j8bit_forager.cloakmix.item.ModItemProperties;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.messages.ModMessages;
+import xyz.j8bit_forager.cloakmix.screen.ModMenuTypes;
+import xyz.j8bit_forager.cloakmix.screen.SpectralLoomScreen;
 import xyz.j8bit_forager.cloakmix.world.feature.ModConfiguredFeatures;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -43,6 +46,8 @@ public class CloakMix
         ModEnchantments.register(modEventBus);
         ModConfiguredFeatures.register(modEventBus);
         ModEntityTypes.register(modEventBus);
+        ModBlockEntityTypes.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         GeckoLibMod.DISABLE_IN_DEV = true;
         GeckoLib.initialize();
@@ -75,6 +80,8 @@ public class CloakMix
             ModCreativeModeTab.CLOAKMIX_ITEMS_TAB.setEnchantmentCategories(ModEnchantments.CLOAK);
 
             ModItemProperties.addCustomItemProperties();
+
+            MenuScreens.register(ModMenuTypes.SPECTRAL_LOOM_MENU.get(), SpectralLoomScreen::new);
 
         }
     }
