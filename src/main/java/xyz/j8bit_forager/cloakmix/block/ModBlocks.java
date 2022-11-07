@@ -140,6 +140,10 @@ public class ModBlocks {
                     .copy(Blocks.GRASS_BLOCK)),
             ModCreativeModeTab.CLOAKMIX_BLOCKS_TAB);
 
+    public static final RegistryObject<Block> SPECTRAL_LOOM = registerBlock("spectral_loom",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.LOOM)),
+            ModCreativeModeTab.CLOAKMIX_BLOCKS_TAB);
+
     // wood
 
     public static final RegistryObject<Block> BALD_CYPRESS_WOOD = registerBlock("bald_cypress_wood",
