@@ -33,8 +33,6 @@ public class SpectralLoomRecipe implements Recipe<SimpleContainer> {
             return false;
         }
 
-
-
         return recipeItems.get(0).test(pContainer.getItem(1));
     }
 
@@ -56,6 +54,11 @@ public class SpectralLoomRecipe implements Recipe<SimpleContainer> {
     @Override
     public ResourceLocation getId() {
         return id;
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return recipeItems;
     }
 
     @Override
@@ -82,7 +85,7 @@ public class SpectralLoomRecipe implements Recipe<SimpleContainer> {
 
         @Override
         public SpectralLoomRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
+            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "result"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
             NonNullList<Ingredient> inputs = NonNullList.withSize(4, Ingredient.EMPTY);
@@ -108,7 +111,12 @@ public class SpectralLoomRecipe implements Recipe<SimpleContainer> {
 
         @Override
         public void toNetwork(FriendlyByteBuf pBuffer, SpectralLoomRecipe pRecipe) {
+            pBuffer.writeInt(pRecipe.getIngredients().size());
 
+            for (Ingredient ing : pRecipe.getIngredients()) {
+                ing.toNetwork(pBuffer);
+            }
+            pBuffer.writeItemStack(pRecipe.getResultItem(), false);
         }
     }
 

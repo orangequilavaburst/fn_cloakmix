@@ -3,10 +3,19 @@
   "ingredients": [
     {
       "item": "cloakmix:basic_cloak"
+    },
+    {
+      "item": "minecraft:raw_copper"
+    },
+    {
+      "item": "minecraft:raw_gold"
+    },
+    {
+      "item": "minecraft:raw_iron"
     }
   ],
   "result": {
-    "count": 3,
+    "count": 1,
     "item": "minecraft:diamond"
   }
 }
