@@ -1,0 +1,12 @@
+{
+  "type": "cloakmix:spectral_loom",
+  "ingredients": [
+    {
+      "item": "cloakmix:basic_cloak"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "minecraft:diamond"
+  }
+}

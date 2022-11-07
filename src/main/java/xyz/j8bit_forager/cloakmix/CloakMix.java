@@ -25,6 +25,7 @@ import xyz.j8bit_forager.cloakmix.item.ModCreativeModeTab;
 import xyz.j8bit_forager.cloakmix.item.ModItemProperties;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.messages.ModMessages;
+import xyz.j8bit_forager.cloakmix.recipe.ModRecipes;
 import xyz.j8bit_forager.cloakmix.screen.ModMenuTypes;
 import xyz.j8bit_forager.cloakmix.screen.SpectralLoomScreen;
 import xyz.j8bit_forager.cloakmix.world.feature.ModConfiguredFeatures;
@@ -48,6 +49,7 @@ public class CloakMix
         ModEntityTypes.register(modEventBus);
         ModBlockEntityTypes.register(modEventBus);
         ModMenuTypes.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
         GeckoLibMod.DISABLE_IN_DEV = true;
         GeckoLib.initialize();

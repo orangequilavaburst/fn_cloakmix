@@ -27,7 +27,10 @@ import org.jetbrains.annotations.Nullable;
 import xyz.j8bit_forager.cloakmix.CloakMix;
 import xyz.j8bit_forager.cloakmix.block.ModBlocks;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
+import xyz.j8bit_forager.cloakmix.recipe.SpectralLoomRecipe;
 import xyz.j8bit_forager.cloakmix.screen.SpectralLoomMenu;
+
+import java.util.Optional;
 
 public class SpectralLoomBlockEntity extends BlockEntity implements MenuProvider {
 
@@ -77,7 +80,7 @@ public class SpectralLoomBlockEntity extends BlockEntity implements MenuProvider
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable(CloakMix.MOD_ID, ModBlocks.SPECTRAL_LOOM.getId());
+        return Component.literal("Spectral Loom");
     }
 
     @Nullable
@@ -110,6 +113,7 @@ public class SpectralLoomBlockEntity extends BlockEntity implements MenuProvider
     @Override
     protected void saveAdditional(CompoundTag pTag) {
         pTag.put("inventory", itemHandler.serializeNBT());
+        pTag.putInt("spectral_loom.progress", this.progress);
 
         super.saveAdditional(pTag);
     }
@@ -118,6 +122,7 @@ public class SpectralLoomBlockEntity extends BlockEntity implements MenuProvider
     public void load(CompoundTag pTag) {
         super.load(pTag);
         itemHandler.deserializeNBT(serializeNBT().getCompound("inventory"));
+        progress = pTag.getInt("spectral_loom.progress");
     }
 
     public void drops(){
@@ -160,16 +165,7 @@ public class SpectralLoomBlockEntity extends BlockEntity implements MenuProvider
 
     private static void craftItem(SpectralLoomBlockEntity entity) {
 
-        if (hasRecipe(entity)){
-            entity.itemHandler.extractItem(1, 1, false);
-            entity.itemHandler.setStackInSlot(4, new ItemStack(Items.DIAMOND,
-                    entity.itemHandler.getStackInSlot(4).getCount() + 1));
-            entity.resetProgress();
-        }
-
-    }
-
-    private static boolean hasRecipe(SpectralLoomBlockEntity entity) {
+        Level level = entity.level;
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
 
         for (int i = 0; i < entity.itemHandler.getSlots(); i++){
@@ -178,10 +174,31 @@ public class SpectralLoomBlockEntity extends BlockEntity implements MenuProvider
 
         }
 
-        boolean hasCloakInFirstSlot = entity.itemHandler.getStackInSlot(0).getItem() == ModItems.BASIC_CLOAK.get();
+        Optional<SpectralLoomRecipe> recipe = level.getRecipeManager().getRecipeFor(SpectralLoomRecipe.Type.INSTANCE, inventory, level);
 
-        return hasCloakInFirstSlot && canInsertAmountIntoSlot(inventory) &&
-                canInsertItemIntoOutputSlot(inventory, new ItemStack(Items.DIAMOND, 1));
+        if (hasRecipe(entity)){
+            entity.itemHandler.extractItem(1, 1, false);
+            entity.itemHandler.setStackInSlot(4, new ItemStack(recipe.get().getResultItem().getItem(),
+                    entity.itemHandler.getStackInSlot(4).getCount() + 1));
+            entity.resetProgress();
+        }
+
+    }
+
+    private static boolean hasRecipe(SpectralLoomBlockEntity entity) {
+        Level level = entity.level;
+        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
+
+        for (int i = 0; i < entity.itemHandler.getSlots(); i++){
+
+            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
+
+        }
+
+        Optional<SpectralLoomRecipe> recipe = level.getRecipeManager().getRecipeFor(SpectralLoomRecipe.Type.INSTANCE, inventory, level);
+
+        return recipe.isPresent() && canInsertAmountIntoSlot(inventory) &&
+                canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem());
 
     }
 
