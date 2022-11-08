@@ -33,7 +33,12 @@ public class SpectralLoomRecipe implements Recipe<SimpleContainer> {
             return false;
         }
 
-        return recipeItems.get(0).test(pContainer.getItem(1));
+        boolean result = true;
+        for (int i = 0; i < recipeItems.size() - 1; i++){
+            result &= recipeItems.get(i).test(pContainer.getItem(i));
+        }
+
+        return result;
     }
 
     @Override
