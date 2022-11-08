@@ -73,7 +73,7 @@ public class SpectralLoomBlockEntity extends BlockEntity implements MenuProvider
 
             @Override
             public int getCount() {
-                return 0;
+                return 5;
             }
         };
     }
@@ -188,26 +188,24 @@ public class SpectralLoomBlockEntity extends BlockEntity implements MenuProvider
     private static boolean hasRecipe(SpectralLoomBlockEntity entity) {
         Level level = entity.level;
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
-
-        for (int i = 0; i < entity.itemHandler.getSlots(); i++){
-
+        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
-
         }
 
-        Optional<SpectralLoomRecipe> recipe = level.getRecipeManager().getRecipeFor(SpectralLoomRecipe.Type.INSTANCE, inventory, level);
+        Optional<SpectralLoomRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(SpectralLoomRecipe.Type.INSTANCE, inventory, level);
 
-        return recipe.isPresent() && canInsertAmountIntoSlot(inventory) &&
+
+        return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
                 canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem());
-
     }
 
-    private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack itemStack) {
-        return inventory.getItem(1).getItem() == itemStack.getItem() || inventory.getItem(1).isEmpty();
+    private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack stack) {
+        return inventory.getItem(4).getItem() == stack.getItem() || inventory.getItem(4).isEmpty();
     }
 
-    private static boolean canInsertAmountIntoSlot(SimpleContainer inventory) {
-        return inventory.getItem(1).getMaxStackSize() > inventory.getItem(1).getCount();
+    private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
+        return inventory.getItem(4).getMaxStackSize() > inventory.getItem(4).getCount();
     }
 
 }
