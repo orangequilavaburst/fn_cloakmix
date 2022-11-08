@@ -80,7 +80,10 @@ public class SpectralLoomBlockEntity extends BlockEntity implements MenuProvider
 
     @Override
     public Component getDisplayName() {
-        return Component.literal("Spectral Loom");
+        String name = "Spectral Loom";
+        name += ", progress = " + this.progress;
+        name += ", items = " + (data.getCount());
+        return Component.literal(name);
     }
 
     @Nullable
