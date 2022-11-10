@@ -9,12 +9,12 @@ public class CloakArmorModel extends AnimatedGeoModel<ModCloakItem> {
 
     @Override
     public ResourceLocation getModelResource(ModCloakItem modCloakItem) {
-        return new ResourceLocation(CloakMix.MOD_ID, "geo/cloaks/basecloak.geo.json");
+        return new ResourceLocation(CloakMix.MOD_ID, "geo/cloaks/base_cloak.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(ModCloakItem modCloakItem) {
-        return new ResourceLocation(CloakMix.MOD_ID, "textures/model/armor/cloaks/base_cloak_texture.png");
+        return new ResourceLocation(CloakMix.MOD_ID, "textures/model/armor/cloaks/base_cloak.png");
     }
 
     @Override

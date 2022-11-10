@@ -2,6 +2,7 @@
 
   "item.cloakmix.reaper_cloth": "Reaper Cloth",
   "item.cloakmix.basic_cloak": "Basic Cloak",
+  "item.cloakmix.spectral_cloak_test": "Spectral Cloak",
 
   "item.cloakmix.sanguine_dagger": "Sanguine Dagger",
   "item.cloakmix.vorpal_blade": "Vorpal Blade",
@@ -48,6 +49,9 @@
   "enchantment.cloakmix.magic_protection": "Magic Protection",
 
   "itemGroup.cloakmix_item_tab": "FN - Cloak Mix (Items)",
-  "itemGroup.cloakmix_block_tab": "FN - Cloak Mix (Blocks)"
+  "itemGroup.cloakmix_block_tab": "FN - Cloak Mix (Blocks)",
 
+  "tooltip.cloakmix.spectral_cloak.view_desc": "View Abilities",
+  "tooltip.cloakmix.spectral_cloak_test": "Test",
+  "tooltip.cloakmix.spectral_cloak_test.desc": "This is a test description."
 }

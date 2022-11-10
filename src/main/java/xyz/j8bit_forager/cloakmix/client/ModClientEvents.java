@@ -37,11 +37,13 @@ import xyz.j8bit_forager.cloakmix.block.ModBlocks;
 import xyz.j8bit_forager.cloakmix.enchantment.ModEnchantments;
 import xyz.j8bit_forager.cloakmix.entity.ModEntityTypes;
 import xyz.j8bit_forager.cloakmix.entity.client.armor.CloakArmorRenderer;
+import xyz.j8bit_forager.cloakmix.entity.client.armor.SpectralCloakArmorRenderer;
 import xyz.j8bit_forager.cloakmix.entity.client.custom.renderer.SanguineDaggerRenderer;
 import xyz.j8bit_forager.cloakmix.entity.client.custom.renderer.VorpalBladeRenderer;
 import xyz.j8bit_forager.cloakmix.item.ModItems;
 import xyz.j8bit_forager.cloakmix.item.custom.ModCloakItem;
 import xyz.j8bit_forager.cloakmix.item.custom.ModDyeableCloakItem;
+import xyz.j8bit_forager.cloakmix.item.custom.SpectralCloakItem;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModClientEvents {
@@ -63,6 +65,7 @@ public class ModClientEvents {
         //GeoArmorRenderer.registerArmorRenderer(ItemRalseiArmor.class, new RalseiHatRenderer());
         GeoArmorRenderer.registerArmorRenderer(ModCloakItem.class, new CloakArmorRenderer());
         GeoArmorRenderer.registerArmorRenderer(ModDyeableCloakItem.class, new CloakArmorRenderer());
+        GeoArmorRenderer.registerArmorRenderer(SpectralCloakItem.class, new SpectralCloakArmorRenderer());
     }
 
     @SubscribeEvent

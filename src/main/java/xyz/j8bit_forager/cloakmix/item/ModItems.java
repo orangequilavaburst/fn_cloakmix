@@ -1,5 +1,6 @@
 package xyz.j8bit_forager.cloakmix.item;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
@@ -8,9 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xyz.j8bit_forager.cloakmix.CloakMix;
-import xyz.j8bit_forager.cloakmix.item.custom.ModDyeableCloakItem;
-import xyz.j8bit_forager.cloakmix.item.custom.ModSanguineDagger;
-import xyz.j8bit_forager.cloakmix.item.custom.ModVorpalBlade;
+import xyz.j8bit_forager.cloakmix.item.custom.*;
 
 public class ModItems {
 
@@ -24,6 +23,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> BASIC_CLOAK = ITEMS.register("basic_cloak",
             () -> new ModDyeableCloakItem(ModArmorTiers.CLOTH, new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB)));
+
+    public static final RegistryObject<Item> SPECTRAL_CLOAK_TEST = ITEMS.register("spectral_cloak_test",
+            () -> new SpectralCloakItem(ModArmorTiers.CLOTH, new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB).rarity(Rarity.UNCOMMON), SpectralCloakTypes.TEST));
 
     public static final RegistryObject<Item> SANGUINE_DAGGER = ITEMS.register("sanguine_dagger",
             () -> new ModSanguineDagger(new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB).durability(666).rarity(Rarity.RARE), 1.5f, 2.5f, 10, Items.GHAST_TEAR));

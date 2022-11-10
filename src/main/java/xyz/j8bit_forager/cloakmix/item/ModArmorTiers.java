@@ -5,13 +5,14 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import xyz.j8bit_forager.cloakmix.CloakMix;
 
 import java.util.function.Supplier;
 
 public enum ModArmorTiers implements ArmorMaterial {
-    CLOTH("cloth", 6, new int[]{4, 4, 4, 4}, 15, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0f, 0.0f, () -> Ingredient.EMPTY);
+    CLOTH("cloth", 6, new int[]{4, 4, 4, 4}, 15, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0f, 0.0f, () -> Ingredient.of(new ItemStack(ModItems.REAPER_CLOTH.get(), 1)));
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
     private final String name;
