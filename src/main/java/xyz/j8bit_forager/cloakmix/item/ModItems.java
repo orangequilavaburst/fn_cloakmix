@@ -27,6 +27,9 @@ public class ModItems {
     public static final RegistryObject<Item> SPECTRAL_CLOAK_TEST = ITEMS.register("spectral_cloak_test",
             () -> new SpectralCloakItem(ModArmorTiers.CLOTH, new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB).rarity(Rarity.UNCOMMON), SpectralCloakTypes.TEST));
 
+    public static final RegistryObject<Item> SPECTRAL_CLOAK_CLUCK = ITEMS.register("spectral_cloak_cluck",
+            () -> new SpectralCloakItem(ModArmorTiers.CLOTH, new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB).rarity(Rarity.UNCOMMON), SpectralCloakTypes.CLUCK));
+
     public static final RegistryObject<Item> SANGUINE_DAGGER = ITEMS.register("sanguine_dagger",
             () -> new ModSanguineDagger(new Item.Properties().tab(ModCreativeModeTab.CLOAKMIX_ITEMS_TAB).durability(666).rarity(Rarity.RARE), 1.5f, 2.5f, 10, Items.GHAST_TEAR));
 

@@ -3,6 +3,7 @@
   "item.cloakmix.reaper_cloth": "Reaper Cloth",
   "item.cloakmix.basic_cloak": "Basic Cloak",
   "item.cloakmix.spectral_cloak_test": "Spectral Cloak",
+  "item.cloakmix.spectral_cloak_cluck": "Spectral Cloak",
 
   "item.cloakmix.sanguine_dagger": "Sanguine Dagger",
   "item.cloakmix.vorpal_blade": "Vorpal Blade",
@@ -53,5 +54,7 @@
 
   "tooltip.cloakmix.spectral_cloak.view_desc": "View Abilities",
   "tooltip.cloakmix.spectral_cloak_test": "Test",
-  "tooltip.cloakmix.spectral_cloak_test.desc": "This is a test description."
+  "tooltip.cloakmix.spectral_cloak_test.desc": "This is a test description.",
+  "tooltip.cloakmix.spectral_cloak_cluck": "Cluck",
+  "tooltip.cloakmix.spectral_cloak_cluck.desc": "Chicken description."
 }

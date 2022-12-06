@@ -8,7 +8,8 @@ import java.util.Collections;
 import java.util.List;
 
 public enum SpectralCloakTypes {
-    TEST("test", ModArmorTiers.CLOTH, Collections.emptyList());
+    TEST("test", ModArmorTiers.CLOTH, Collections.emptyList()),
+    CLUCK("cluck", ModArmorTiers.CLOTH, Collections.emptyList());
 
     private final String suffix; // the texture name, basically
     private final ArmorMaterial armorMaterial; // the armor material
